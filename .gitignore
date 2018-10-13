@@ -1,0 +1,8 @@
+docker-comp###> docker ###
+.docker/data/*
+###< docker ###
+
+.env
+bin/*
+var/*
+vendor/*
