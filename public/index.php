@@ -4,6 +4,8 @@ use App\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
+use Qandidate\Stack\UuidRequestIdGenerator;
+use Qandidate\Stack\RequestId;
 
 require __DIR__.'/../vendor/autoload.php';
 
@@ -33,6 +35,10 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false
 }
 
 $kernel = new Kernel($env, $debug);
+
+$generator = new UuidRequestIdGenerator(42);
+$requestId = new RequestId($kernel, $generator);
+
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();

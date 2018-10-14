@@ -32,6 +32,7 @@ services:
         depends_on:
           - maildev
           - mysql
+          - elasticsearch
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
@@ -46,3 +47,9 @@ services:
         container_name: sf4_maildev
         ports:
           - 8001:80
+
+    elasticsearch:
+        build: .docker/elasticsearch
+        container_name: sf4_elasticsearch
+        ports:
+        - 9200:9200

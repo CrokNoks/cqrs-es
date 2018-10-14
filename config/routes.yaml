@@ -1,3 +1,35 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+create_basket:
+  path: /basket
+  methods: [POST]
+  defaults:
+    _controller: App\Controller\BasketController::pickUpBasketAction
+
+add_product:
+  path: /basket/{basketId}/addProduct
+  methods: [POST]
+  defaults:
+    _controller: App\Controller\BasketController::addProductToBasketAction
+
+remove_product:
+  path: /basket/{basketId}/removeProduct
+  methods: [POST]
+  defaults:
+    _controller: App\Controller\BasketController::removeProductFromBasketAction
+
+checkout:
+  path: /basket/{basketId}/checkout
+  methods: [POST]
+  defaults:
+    _controller: App\Controller\BasketController::checkoutAction
+
+get_advice:
+  path: /advice/{productId}
+  methods: [GET]
+  defaults:
+    _controller: App\Controller\PeopleThatBoughtThisProductAlsoBoughtController::getAdviceAction
+
+get_basket:
+  path: /basket/{basketId}
+  methods: [GET]
+  defaults:
+    _controller: App\Controller\ShowBasketController::getBasketAction

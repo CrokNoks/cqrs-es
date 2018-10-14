@@ -7,9 +7,13 @@
         "ext-iconv": "*",
         "broadway/broadway": "^2.0",
         "broadway/broadway-bundle": "^0.4.1",
+        "broadway/event-store-dbal": "^0.2.1",
+        "broadway/read-model-elasticsearch": "^0.3.0",
+        "qandidate/stack-request-id": "^1.1",
         "symfony/console": "*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "*",
+        "symfony/orm-pack": "^1.0",
         "symfony/yaml": "*"
     },
     "require-dev": {
